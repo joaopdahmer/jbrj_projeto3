@@ -1,156 +1,39 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Site de Narrativas</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      overflow-x: hidden;
-    }
-    .narrative-container {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      width: 100%;
-    }
-    .narrative-card {
-      width: 45%;
-      padding: 20px;
-      margin: 10px 0;
-      border-radius: 8px;
-      background: #f4f4f4;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    .narrative-card:nth-child(odd) {
-      align-self: flex-start;
-    }
-    .narrative-card:nth-child(even) {
-      align-self: flex-end;
-    }
-    .image-viewer {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: rgba(0, 0, 0, 0.8);
-      z-index: 10;
-    }
-    .image-viewer img {
-      max-height: 90%;
-      max-width: 60%;
-      object-fit: contain;
-    }
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      padding: 10px;
-      background-color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .map-container {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 9;
-    }
-    #map {
-      width: 100%;
-      height: 100%;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trilha Frei Leandro</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <h1>Trilha Frei Leandro</h1>
+        <p>Explore as plantas e a história botânica no Jardim Botânico do Rio de Janeiro.</p>
+    </header>
 
-  <div class="narrative-container">
-    <!-- Cards de narrativa -->
-    <div class="narrative-card" id="textCard1">Texto da narrativa 1...</div>
-    <div class="narrative-card" id="textCard2">Texto da narrativa 2...</div>
-    <div class="narrative-card" id="textCard3">Texto da narrativa 3...</div>
-    <!-- Mais cards podem ser adicionados conforme necessário -->
-  </div>
+    <main id="narrativas">
+        <h2>Introdução</h2>
+        <div class="narrativaTexto">
+            <strong>Trilha Frei Leandro:</strong> A trilha homenageia o botânico Frei Leandro e suas contribuições ao Jardim Botânico.
+        </div>
+        <hr>
 
-  <div class="image-viewer" id="imageViewer">
-    <!-- Visualizador de Imagem com Zoom -->
-    <img id="centralImage" src="imagem.jpg" alt="Imagem Central">
-    <button class="close-btn" onclick="toggleImage()">Fechar</button>
-  </div>
+        <h2>Plantas da Trilha</h2>
+        <!-- Aqui adicionamos as plantas, seguindo o modelo -->
+        <div class="narrativaTexto">
+            <strong>Chá - Camellia sinensis:</strong> Introduzida por Frei Leandro, cultivada por seu valor medicinal e histórico.
+        </div>
+        <hr>
+        <div class="narrativaTexto">
+            <strong>Teca - Tectona grandis:</strong> Madeira naval introduzida no JBRJ por seu valor cultural.
+        </div>
+        <!-- Adicione outras plantas conforme necessário -->
+    </main>
 
-  <div id="mapContainer" class="map-container">
-    <!-- Mapa Leaflet -->
-    <div id="map"></div>
-    <button class="close-btn" onclick="toggleMap()">Fechar</button>
-  </div>
-
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script>
-    let map;
-    let mapInitialized = false;
-
-    // Função para alternar a visualização da imagem
-    function toggleImage() {
-      const imageViewer = document.getElementById("imageViewer");
-      imageViewer.style.display = imageViewer.style.display === "flex" ? "none" : "flex";
-    }
-
-    // Função para alternar a visualização do mapa
-    function toggleMap() {
-      const mapContainer = document.getElementById("mapContainer");
-      if (mapContainer.style.display === "flex") {
-        mapContainer.style.display = "none";
-      } else {
-        mapContainer.style.display = "flex";
-        if (!mapInitialized) initializeMap();
-      }
-    }
-
-    // Inicializar o mapa
-    function initializeMap() {
-      map = L.map("map").setView([-22.968, -43.223], 15); // Coordenadas do Jardim Botânico
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 19,
-      }).addTo(map);
-      mapInitialized = true;
-    }
-
-    // Manipulação de narrativa ao rolar
-    document.addEventListener("scroll", () => {
-      const scrollPosition = window.scrollY;
-      const narrativeCards = document.querySelectorAll(".narrative-card");
-
-      narrativeCards.forEach((card, index) => {
-        const cardPosition = card.offsetTop;
-        if (scrollPosition >= cardPosition - window.innerHeight / 2) {
-          if (index % 2 === 0) {
-            toggleMap();
-          } else {
-            toggleImage();
-          }
-        }
-      });
-    });
-  </script>
+    <footer>
+        <p>Jardim Botânico do Rio de Janeiro © 2024</p>
+    </footer>
 
 </body>
 </html>
