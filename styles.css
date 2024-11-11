@@ -1,9 +1,16 @@
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -15,14 +22,14 @@ header {
 
 main {
     display: flex;
-    padding: 20px;
+    flex: 1;
+    height: calc(100vh - 100px); /* Considerando altura do header e footer */
 }
 
 #texto {
     width: 50%;
-    max-width: 600px;
-    padding-right: 20px;
-    box-sizing: border-box;
+    padding: 20px;
+    overflow-y: auto;
 }
 
 #imagem-container {
@@ -30,11 +37,13 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%; /* Ocupa toda a altura */
 }
 
 #imagemPlanta {
-    max-width: 90%;
-    max-height: 80vh;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
