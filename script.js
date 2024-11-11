@@ -12,20 +12,38 @@ const imagens = {
 };
 
 function mostrarImagem(element) {
-    // Remove a classe "ativa" de qualquer narrativa anterior
-    const narrativas = document.querySelectorAll('.planta');
-    narrativas.forEach((narrativa) => narrativa.classList.remove('ativa'));
-
-    // Adiciona a classe "ativa" à narrativa atual
+    esconderMapa();
+    const id = element.getAttribute('data-id');
+    document.querySelectorAll('.planta').forEach(n => n.classList.remove('ativa'));
     element.classList.add('ativa');
 
-    // Obtém o ID da imagem a partir do atributo data-id
-    const id = element.getAttribute('data-id');
     const imagemUrl = imagens[id];
+    document.getElementById('imagemPlanta').src = imagemUrl;
+    document.getElementById('imagemLink').href = imagemUrl;
+}
 
-    // Atualiza a imagem no lado direito e o link para o Lightbox
-    const imagemPlanta = document.getElementById('imagemPlanta');
-    const imagemLink = document.getElementById('imagemLink');
-    imagemPlanta.src = imagemUrl;
-    imagemLink.href = imagemUrl;  // Define o link para o visualizador
+function mostrarMapa(element) {
+    esconderImagem();
+    document.querySelectorAll('.planta').forEach(n => n.classList.remove('ativa'));
+    element.classList.add('ativa');
+
+    const mapaContainer = document.getElementById('mapa-container');
+    mapaContainer.style.display = 'block';
+
+    const map = L.map('mapa-container').setView([-22.9676, -43.2294], 15);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    const gpx = new L.GPX("path/to/trilha_frei_leandro.gpx", { async: true });
+    gpx.addTo(map);
+}
+
+function esconderImagem() {
+    document.getElementById('imagemPlanta').src = '';
+    document.getElementById('imagemLink').href = '';
+}
+
+function esconderMapa() {
+    document.getElementById('mapa-container').style.display = 'none';
 }
