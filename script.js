@@ -42,8 +42,8 @@ function mostrarMapa(element) {
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
-        // Adiciona o GPX da trilha
-        new L.GPX("path/to/trilha_frei_leandro.gpx", {
+        // Adiciona o GPX da trilha com o link direto do GitHub
+        new L.GPX("https://raw.githubusercontent.com/joaopdahmer/JBRJ_PROJETO3/main/trilha_frei_leandro.gpx", {
             async: true,
             marker_options: {
                 startIconUrl: null,
