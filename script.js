@@ -12,12 +12,13 @@ const imagens = {
 };
 
 function mostrarImagem(id) {
-    const img = document.getElementById('imagemPlanta');
-    img.src = imagens[id];
-    img.style.display = 'block';
+    const lightbox = document.getElementById('lightbox');
+    const imagemLightbox = document.getElementById('imagemLightbox');
+    imagemLightbox.src = imagens[id];
+    lightbox.style.display = 'flex';
 }
 
-function ocultarImagem() {
-    const img = document.getElementById('imagemPlanta');
-    img.style.display = 'none';
+function fecharImagem() {
+    const lightbox = document.getElementById('lightbox');
+    lightbox.style.display = 'none';
 }
