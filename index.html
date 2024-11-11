@@ -66,14 +66,14 @@
         </section>
 
         <!-- Coluna para imagem ou mapa à direita com a moldura -->
-    <aside id="imagem-container" class="moldura">
-        <!-- Link para o Lightbox com a imagem -->
-        <a href="" id="imagemLink" data-lightbox="galeria" data-title="Imagem ampliada da planta selecionada">
-            <img id="imagemPlanta" src="" alt="Imagem da planta selecionada">
-        </a>
-        <!-- Contêiner do mapa, inicialmente oculto e com a mesma moldura -->
-        <div id="mapa-container" class="moldura"></div>
-    </aside>
+        <aside id="imagem-container" class="moldura">
+            <!-- Link para o Lightbox com a imagem para visualização em tela cheia -->
+            <a href="" id="imagemLink" data-lightbox="galeria" data-title="Imagem ampliada da planta selecionada">
+                <img id="imagemPlanta" src="" alt="Imagem da planta selecionada">
+            </a>
+            <!-- Contêiner do mapa, inicialmente oculto e com a mesma moldura -->
+            <div id="mapa-container" class="moldura"></div>
+        </aside>
     </main>
 
     <footer>
@@ -82,7 +82,7 @@
 
     <!-- Links para JavaScript do Leaflet, Lightbox e script para GPX -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="path/to/lightbox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.5.0/gpx.min.js"></script>
     <!-- Link para o JavaScript do projeto -->
     <script src="script.js"></script>
