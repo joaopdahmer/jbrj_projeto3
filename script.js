@@ -12,13 +12,15 @@ const imagens = {
 };
 
 function mostrarImagem(id) {
-    const lightbox = document.getElementById('lightbox');
-    const imagemLightbox = document.getElementById('imagemLightbox');
-    imagemLightbox.src = imagens[id];
-    lightbox.style.display = 'flex';
-}
+    // Remove a classe "ativa" de qualquer narrativa anterior
+    const narrativas = document.querySelectorAll('.planta');
+    narrativas.forEach((narrativa) => narrativa.classList.remove('ativa'));
 
-function fecharImagem() {
-    const lightbox = document.getElementById('lightbox');
-    lightbox.style.display = 'none';
+    // Adiciona a classe "ativa" à narrativa atual
+    const narrativaAtual = document.querySelector(`.planta:nth-child(${id + 2})`); // Ajuste para selecionar o elemento correto
+    narrativaAtual.classList.add('ativa');
+
+    // Atualiza a imagem no lado direito
+    const imagemPlanta = document.getElementById('imagemPlanta');
+    imagemPlanta.src = imagens[id];
 }
