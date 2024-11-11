@@ -11,14 +11,16 @@ const imagens = {
     10: 'https://cloud.jbrj.gov.br/apps/files_sharing/publicpreview/TDMYgQJGW7QirAo?file=/&fileId=17946839&x=1927&y=920&a=true&etag=109dd2b574c1d36a21c667334b562643'
 };
 
-function mostrarImagem(id) {
+function mostrarImagem(element) {
     // Remove a classe "ativa" de qualquer narrativa anterior
     const narrativas = document.querySelectorAll('.planta');
     narrativas.forEach((narrativa) => narrativa.classList.remove('ativa'));
 
     // Adiciona a classe "ativa" à narrativa atual
-    const narrativaAtual = document.querySelector(`.planta:nth-child(${id + 2})`); // Ajuste para selecionar o elemento correto
-    narrativaAtual.classList.add('ativa');
+    element.classList.add('ativa');
+
+    // Obtém o ID da imagem a partir do atributo data-id
+    const id = element.getAttribute('data-id');
 
     // Atualiza a imagem no lado direito
     const imagemPlanta = document.getElementById('imagemPlanta');
