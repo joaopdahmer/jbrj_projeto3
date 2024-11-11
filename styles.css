@@ -37,6 +37,13 @@ footer {
     cursor: pointer;
 }
 
+/* Estilo para a narrativa ativa */
+.planta.ativa {
+    border: 2px solid #2e7d32;
+    padding: 10px;
+    border-radius: 8px;
+}
+
 /* Estilos para a lightbox */
 .lightbox {
     display: none;
