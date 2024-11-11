@@ -22,52 +22,53 @@
 
             <h2>Plantas da Trilha</h2>
 
-            <!-- Lista completa das plantas com eventos onmouseover e onmouseout -->
-            <div class="planta" onmouseover="mostrarImagem(1)" onmouseout="ocultarImagem()">
+            <!-- Lista completa das plantas com evento onclick para abrir a imagem em zoom -->
+            <div class="planta" onclick="mostrarImagem(1)">
                 <p><strong>Chá - Camellia sinensis:</strong> Mudas de chá foram trazidas da China para o Rio de Janeiro em 1810. Frei Leandro cultivava o chá no Passeio Público e no JBRJ, onde produziu a "Memória econômica sobre a plantação, cultura, e preparação do chá". Esta planta continua a ser um símbolo do interesse científico e econômico da época.</p>
             </div>
 
-            <div class="planta" onmouseover="mostrarImagem(2)" onmouseout="ocultarImagem()">
+            <div class="planta" onclick="mostrarImagem(2)">
                 <p><strong>Teca - Tectona grandis:</strong> Originária da Ásia e considerada uma das melhores madeiras para construção naval, a teca foi introduzida no Brasil com apoio de D. João e plantada no JBRJ por Frei Leandro. A árvore ampliou a diversidade genética da coleção e foi cultivada em bosques artificiais no século XIX.</p>
             </div>
 
-            <div class="planta" onmouseover="mostrarImagem(3)" onmouseout="ocultarImagem()">
+            <div class="planta" onclick="mostrarImagem(3)">
                 <p><strong>Fruta-Pão - Artocarpus altilis:</strong> Com origem nas Ilhas do Pacífico, a fruta-pão foi introduzida para alimentar a crescente população no Brasil. Frei Leandro oferecia a fruta aos visitantes do Jardim, destacando seu valor nutricional e comparando seu sabor ao do pão e da batata.</p>
             </div>
 
-            <div class="planta" onmouseover="mostrarImagem(4)" onmouseout="ocultarImagem()">
+            <div class="planta" onclick="mostrarImagem(4)">
                 <p><strong>Esponja-de-Ouro - Stifftia chrysantha:</strong> Espécie nativa do Brasil, estudada e nomeada por Frei Leandro, que a depositou no herbário do Museu Nacional de Paris. Sua beleza e caráter nativo fazem dela um marco no paisagismo do Jardim Botânico.</p>
             </div>
 
-            <div class="planta" onmouseover="mostrarImagem(5)" onmouseout="ocultarImagem()">
+            <div class="planta" onclick="mostrarImagem(5)">
                 <p><strong>Biribá - Annona mucosa:</strong> Fruta conhecida como fruta-do-conde e popular na América Central e do Sul. Introduzida por Frei Leandro, representa a valorização de espécies nativas no Jardim Botânico, mesmo que, na época, fosse vista como exótica.</p>
             </div>
 
-            <div class="planta" onmouseover="mostrarImagem(6)" onmouseout="ocultarImagem()">
+            <div class="planta" onclick="mostrarImagem(6)">
                 <p><strong>Sibipiruna - Cenostigma pluviosum:</strong> Árvore nativa conhecida por Frei Leandro como "árvore que chovia". A espécie foi estudada por ele e tornou-se um símbolo do estudo fisiológico das plantas no início do século XIX.</p>
             </div>
 
-            <div class="planta" onmouseover="mostrarImagem(7)" onmouseout="ocultarImagem()">
+            <div class="planta" onclick="mostrarImagem(7)">
                 <p><strong>Abacate - Persea americana:</strong> Originária da América Central, esta árvore é valorizada por suas propriedades medicinais e nutritivas. Introduzida por Frei Leandro no Jardim Botânico, tornou-se naturalizada no Brasil.</p>
             </div>
 
-            <div class="planta" onmouseover="mostrarImagem(8)" onmouseout="ocultarImagem()">
+            <div class="planta" onclick="mostrarImagem(8)">
                 <p><strong>Árvore-do-Carvão - Albizia lebbeck:</strong> Espécie asiática introduzida no JBRJ. Sua madeira é usada para fabricação de móveis, e sua goma, como substituto da goma-arábica. É uma planta pioneira, adaptando-se bem em vários ambientes.</p>
             </div>
 
-            <div class="planta" onmouseover="mostrarImagem(9)" onmouseout="ocultarImagem()">
+            <div class="planta" onclick="mostrarImagem(9)">
                 <p><strong>Olho-de-Boi - Dimocarpus longan:</strong> Esta árvore de origem asiática recebeu um espaço especial na expansão do JBRJ feita por Frei Leandro. Sua alameda homenageia o botânico e ainda hoje é uma lembrança de seu trabalho no Jardim.</p>
             </div>
 
-            <div class="planta" onmouseover="mostrarImagem(10)" onmouseout="ocultarImagem()">
+            <div class="planta" onclick="mostrarImagem(10)">
                 <p><strong>Jaqueira - Artocarpus heterophyllus:</strong> Introduzida no Jardim por Frei Leandro, a jaqueira tornou-se parte do cenário do JBRJ. A árvore se adaptou ao território brasileiro, e seu fruto e porte imponentes fizeram dela um marco no local.</p>
             </div>
         </section>
 
-        <!-- Coluna de imagem à direita -->
-        <aside id="imagens">
-            <img id="imagemPlanta" src="" alt="Imagem da planta" style="display: none;">
-        </aside>
+        <!-- Lightbox para exibir a imagem em zoom -->
+        <div id="lightbox" class="lightbox" onclick="fecharImagem()">
+            <span class="close" onclick="fecharImagem()">&times;</span>
+            <img id="imagemLightbox" src="" alt="Imagem da planta ampliada">
+        </div>
     </main>
 
     <footer>
