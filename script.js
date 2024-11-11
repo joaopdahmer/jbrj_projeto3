@@ -35,14 +35,12 @@ function mostrarMapa(element) {
     const mapaContainer = document.getElementById('mapa-container');
     mapaContainer.style.display = 'block';
 
-    // Inicializa o mapa apenas uma vez
     if (!map) {
         map = L.map('mapa-container').setView([-22.9676, -43.2294], 15);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
-        // Adiciona o GPX da trilha com o link direto do GitHub
         new L.GPX("https://raw.githubusercontent.com/joaopdahmer/JBRJ_PROJETO3/main/trilha_frei_leandro.gpx", {
             async: true,
             marker_options: {
