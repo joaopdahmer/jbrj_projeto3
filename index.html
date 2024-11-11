@@ -18,10 +18,9 @@
         <!-- Coluna de texto à esquerda -->
         <section id="texto">
             <h2>Introdução</h2>
-            <p>
-                <strong>Trilha Frei Leandro:</strong> Esta Trilha comemora o bicentenário da gestão de Frei Leandro (1824-2024) no Jardim Botânico do Rio de Janeiro. Dela constam espécies que ele introduziu, manejou, pesquisou, e/ou coletou e que, em sua época, tinham relevância científica, cultural, afetiva e econômica. A trilha se inicia no Portão da Rua Jardim Botânico 920, com a espécie mais representativa de sua gestão, o chá (Camellia sinensis (L.) Kuntze), passa por algumas espécies do ‘velho’ jardim e por outras dispostas em aleias abertas por Frei Leandro no processo de expansão do arboreto, finalizando no cômoro, à sombra da jaqueira sob a qual ele se sentava para coordenar a escavação do lago que hoje leva seu nome. Embora seu desejo de ser sepultado ali não tenha sido atendido, a trilha termina nesse espaço memorialístico.
-            </p>
-
+            <div class="planta" data-id="mapa" onclick="mostrarMapa(this)">
+                <p><strong>Trilha Frei Leandro:</strong> Esta Trilha comemora o bicentenário da gestão de Frei Leandro (1824-2024) no Jardim Botânico do Rio de Janeiro. Dela constam espécies que ele introduziu, manejou, pesquisou, e/ou coletou e que, em sua época, tinham relevância científica, cultural, afetiva e econômica. A trilha se inicia no Portão da Rua Jardim Botânico 920, com a espécie mais representativa de sua gestão, o chá (Camellia sinensis (L.) Kuntze), passa por algumas espécies do ‘velho’ jardim e por outras dispostas em aleias abertas por Frei Leandro no processo de expansão do arboreto, finalizando no cômoro, à sombra da jaqueira sob a qual ele se sentava para coordenar a escavação do lago que hoje leva seu nome. Embora seu desejo de ser sepultado ali não tenha sido atendido, a trilha termina nesse espaço memorialístico.</p>
+            </div>
             <h2>Plantas da Trilha</h2>
 
             <!-- Narrativas completas, cada uma com data-id único -->
@@ -66,12 +65,14 @@
             </div>           
         </section>
 
-        <!-- Coluna de imagem à direita com visualizador -->
+        <!-- Coluna para imagem ou mapa à direita -->
         <aside id="imagem-container">
-            <!-- Link que ativa o Lightbox para a imagem ampliada -->
+            <!-- Link para o Lightbox com a imagem -->
             <a href="" id="imagemLink" data-lightbox="galeria" data-title="Imagem ampliada da planta selecionada">
                 <img id="imagemPlanta" src="" alt="Imagem da planta selecionada">
             </a>
+            <!-- Div do mapa, oculta por padrão -->
+            <div id="mapa-container"></div>
         </aside>
     </main>
 
