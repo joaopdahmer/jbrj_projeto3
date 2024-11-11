@@ -21,8 +21,11 @@ function mostrarImagem(element) {
 
     // Obtém o ID da imagem a partir do atributo data-id
     const id = element.getAttribute('data-id');
+    const imagemUrl = imagens[id];
 
-    // Atualiza a imagem no lado direito
+    // Atualiza a imagem no lado direito e o link para o Lightbox
     const imagemPlanta = document.getElementById('imagemPlanta');
-    imagemPlanta.src = imagens[id];
+    const imagemLink = document.getElementById('imagemLink');
+    imagemPlanta.src = imagemUrl;
+    imagemLink.href = imagemUrl;  // Define o link para o visualizador
 }
