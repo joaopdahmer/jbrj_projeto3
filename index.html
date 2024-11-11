@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trilha Frei Leandro - Jardim Botânico do Rio de Janeiro</title>
+    <!-- Link para o CSS do Lightbox -->
+    <link rel="stylesheet" href="path/to/lightbox.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -64,9 +66,12 @@
             </div>           
         </section>
 
-        <!-- Coluna de imagem à direita -->
+        <!-- Coluna de imagem à direita com visualizador -->
         <aside id="imagem-container">
-            <img id="imagemPlanta" src="" alt="Imagem da planta selecionada">
+            <!-- Link que ativa o Lightbox para a imagem ampliada -->
+            <a href="" id="imagemLink" data-lightbox="galeria" data-title="Imagem ampliada da planta selecionada">
+                <img id="imagemPlanta" src="" alt="Imagem da planta selecionada">
+            </a>
         </aside>
     </main>
 
@@ -74,7 +79,9 @@
         <p>Jardim Botânico do Rio de Janeiro © 2024</p>
     </footer>
 
-    <!-- Link para o arquivo JavaScript externo -->
+    <!-- Link para o JavaScript do Lightbox -->
+    <script src="path/to/lightbox.min.js"></script>
+    <!-- Link para o JavaScript externo -->
     <script src="script.js"></script>
 </body>
 </html>
