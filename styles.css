@@ -32,6 +32,15 @@ main {
     overflow-y: auto;
 }
 
+/* Moldura para a imagem e o mapa */
+.moldura {
+    border: 5px solid #2e7d32; /* Cor da moldura */
+    border-radius: 8px;
+    padding: 10px; /* Espaço interno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra suave */
+    background-color: #fff; /* Fundo branco */
+}
+
 #imagem-container {
     width: 50%;
     display: flex;
@@ -44,8 +53,6 @@ main {
 #imagemPlanta, #mapa-container {
     max-width: 100%;
     max-height: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 #imagemPlanta {
