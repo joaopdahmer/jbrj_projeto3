@@ -17,21 +17,21 @@ body {
 }
 
 #story {
-  width: 50%;
-  margin-left: 50%;
-  height: 100vh;
-  overflow-y: scroll;
-  padding: 20px;
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-  background: #f9f9f9;
+  font-size: 18px; /* Tamanho geral do texto das narrativas */
+  line-height: 1.8; /* Melhor espaçamento entre linhas para leitura */
 }
 
 section {
+  font-size: 18px; /* Aumenta o tamanho do texto de todas as narrativas */
+  line-height: 1.8; /* Melhora o espaçamento */
   margin: 100px 0;
   padding: 10px;
 }
 
 section.active {
+  font-size: 20px; /* Tamanho maior para a narrativa ativa */
+  font-weight: bold; /* Deixa o texto da narrativa ativa mais destacado */
+  line-height: 1.9; /* Espaçamento um pouco maior para a narrativa ativa */
   border: 2px solid #007bff;
   border-radius: 5px;
   background-color: #f0f8ff;
