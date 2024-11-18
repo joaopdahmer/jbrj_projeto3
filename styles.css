@@ -20,27 +20,55 @@ body {
   width: 50%;
   margin-left: 50%;
   height: 100vh;
-  overflow-y: scroll;
-  padding: 20px;
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
   background: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-section {
-  margin: 100px 0;
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 80%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-item {
+  display: none;
+  text-align: center;
+  padding: 20px;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-item.active {
+  display: block;
+  opacity: 1;
+}
+
+.carousel-controls {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
   padding: 10px;
 }
 
-section.active {
-  border: 2px solid #007bff;
+.carousel-controls button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
   border-radius: 5px;
-  background-color: #f0f8ff;
-  transition: all 0.3s ease-in-out;
 }
 
-h2 {
-  color: #007bff;
-  font-size: 1.8em;
+.carousel-controls button:hover {
+  background-color: #0056b3;
 }
 
 /* Modal para imagens dos pins */

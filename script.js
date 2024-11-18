@@ -1,12 +1,8 @@
 // Inicialização do mapa
 const map = L.map('map').setView([-22.9692, -43.2219], 15);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
 
-// Adicionar camada base do OpenStreetMap
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19,
-}).addTo(map);
-
-// Adicionar camadas dos mapas históricos
+// Adicionar camadas históricas
 const historicalMaps = {
   '1809': L.imageOverlay(
     'https://raw.githubusercontent.com/joaopdahmer/JBRJ_TESTE2/main/mapa_1809.png',
@@ -20,11 +16,40 @@ const historicalMaps = {
   ).addTo(map),
 };
 
-// Função para alterar opacidade das camadas
+// Função para alternar a visibilidade dos mapas históricos
 function updateMapOpacity(year) {
   Object.keys(historicalMaps).forEach((key) => {
     historicalMaps[key].setOpacity(key === year ? 1 : 0);
   });
+}
+
+// Gerenciamento do carrossel
+let currentIndex = 0;
+const slides = document.querySelectorAll('.carousel-item');
+
+function updateCarousel() {
+  slides.forEach((slide, index) => {
+    const isActive = index === currentIndex;
+    slide.classList.toggle('active', isActive);
+
+    // Atualizar mapa baseado no atributo data-map
+    const mapYear = slide.getAttribute('data-map');
+    if (isActive && mapYear) {
+      updateMapOpacity(mapYear);
+    } else if (isActive && !mapYear) {
+      updateMapOpacity(null);
+    }
+  });
+}
+
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % slides.length;
+  updateCarousel();
+}
+
+function prevSlide() {
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  updateCarousel();
 }
 
 // Adicionar pins interativos
@@ -61,7 +86,6 @@ const pins = [
   },
 ];
 
-// Função para criar pins no mapa
 pins.forEach((pin) => {
   L.marker(pin.coords)
     .addTo(map)
@@ -70,7 +94,6 @@ pins.forEach((pin) => {
     });
 });
 
-// Funções do modal
 function openModal(imageUrl, description) {
   document.getElementById('modalImage').src = imageUrl;
   document.getElementById('modalText').innerText = description;
@@ -81,37 +104,5 @@ function closeModal() {
   document.getElementById('pinModal').style.display = 'none';
 }
 
-// Destacar narrativa ativa
-function setActiveSection(sectionId) {
-  document.querySelectorAll('#story section').forEach((section) => {
-    if (section.id === sectionId) {
-      section.classList.add('active');
-    } else {
-      section.classList.remove('active');
-    }
-  });
-
-  if (sectionId === 'map-1809') {
-    updateMapOpacity('1809');
-  } else if (sectionId === 'map-1844') {
-    updateMapOpacity('1844');
-  } else {
-    updateMapOpacity(null);
-  }
-}
-
-// Observador para narrativas e mapas
-const storySections = document.querySelectorAll('#story section');
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        setActiveSection(entry.target.id);
-      }
-    });
-  },
-  { threshold: 0.5 }
-);
-
-// Ativar observador
-storySections.forEach((section) => observer.observe(section));
+// Atualizar carrossel na inicialização
+updateCarousel();
