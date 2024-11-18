@@ -9,7 +9,7 @@ body {
 }
 
 #map {
-  width: 60%; /* Aumenta o espaço para o mapa */
+  width: 50%;
   height: 100vh;
   position: fixed;
   top: 0;
@@ -17,15 +17,13 @@ body {
 }
 
 #story {
-  width: 40%; /* Reduz a largura da coluna direita */
-  margin-left: 60%; /* Ajusta para acompanhar o tamanho do mapa */
+  width: 50%;
+  margin-left: 50%;
   height: 100vh;
   overflow-y: scroll;
   padding: 20px;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
   background: #f9f9f9;
-  font-size: 36px; /* Dobrou o tamanho da fonte (antes 18px) */
-  line-height: 2.4; /* Ajusta o espaçamento entre linhas */
 }
 
 section {
@@ -42,8 +40,7 @@ section.active {
 
 h2 {
   color: #007bff;
-  font-size: 48px; /* Dobrou o tamanho da fonte (antes 24px) */
-  margin-top: 20px;
+  font-size: 1.8em;
 }
 
 /* Modal para imagens dos pins */
