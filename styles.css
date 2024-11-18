@@ -17,21 +17,21 @@ body {
 }
 
 #story {
-  font-size: 18px; /* Tamanho geral do texto das narrativas */
-  line-height: 1.8; /* Melhor espaçamento entre linhas para leitura */
+  width: 50%;
+  margin-left: 50%;
+  height: 100vh;
+  overflow-y: scroll;
+  padding: 20px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  background: #f9f9f9;
 }
 
 section {
-  font-size: 18px; /* Aumenta o tamanho do texto de todas as narrativas */
-  line-height: 1.8; /* Melhora o espaçamento */
   margin: 100px 0;
   padding: 10px;
 }
 
 section.active {
-  font-size: 20px; /* Tamanho maior para a narrativa ativa */
-  font-weight: bold; /* Deixa o texto da narrativa ativa mais destacado */
-  line-height: 1.9; /* Espaçamento um pouco maior para a narrativa ativa */
   border: 2px solid #007bff;
   border-radius: 5px;
   background-color: #f0f8ff;
@@ -41,4 +41,38 @@ section.active {
 h2 {
   color: #007bff;
   font-size: 1.8em;
+}
+
+/* Modal para imagens dos pins */
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  background-color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  z-index: 1000;
+  border-radius: 8px;
+}
+
+.modal-content {
+  text-align: center;
+}
+
+.modal img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.modal .close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
 }

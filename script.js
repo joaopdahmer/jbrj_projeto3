@@ -29,18 +29,57 @@ function updateMapOpacity(year) {
 
 // Adicionar pins interativos
 const pins = [
-  { coords: [-22.9692, -43.2219], title: "Entrada Principal", description: "A entrada principal é um marco histórico do Jardim Botânico." },
-  { coords: [-22.9676, -43.2240], title: "Chafariz das Musas", description: "O Chafariz das Musas é uma das peças centrais do Jardim Botânico." },
-  { coords: [-22.9685, -43.2247], title: "Busto Frei Leandro", description: "O busto homenageia Frei Leandro, um dos primeiros diretores do Jardim." },
-  { coords: [-22.9683, -43.2268], title: "Casa de Pilões", description: "A Casa de Pilões reflete o passado agrícola da região." },
-  { coords: [-22.9688, -43.2305], title: "Aqueduto", description: "O aqueduto é uma estrutura histórica que abastecia o Jardim." },
+  {
+    coords: [-22.9692, -43.2219],
+    title: "Entrada Principal",
+    description: "A entrada principal é um marco histórico do Jardim Botânico.",
+    imageUrl: "https://acervo.jbrj.gov.br/wp-content/uploads/tainacan-items/431453/551242/PFA01_E008_F003.jpg",
+  },
+  {
+    coords: [-22.9676, -43.2240],
+    title: "Chafariz das Musas",
+    description: "O Chafariz das Musas é uma das peças centrais do Jardim Botânico.",
+    imageUrl: "https://acervo.jbrj.gov.br/wp-content/uploads/tainacan-items/431453/529742/AV02_F006.jpg",
+  },
+  {
+    coords: [-22.9685, -43.2247],
+    title: "Busto Frei Leandro",
+    description: "O busto homenageia Frei Leandro, um dos primeiros diretores do Jardim.",
+    imageUrl: "https://acervo.jbrj.gov.br/wp-content/uploads/tainacan-items/431453/528658/ALB13_F011.jpg",
+  },
+  {
+    coords: [-22.9683, -43.2268],
+    title: "Casa de Pilões",
+    description: "A Casa de Pilões reflete o passado agrícola da região.",
+    imageUrl: "https://acervo.jbrj.gov.br/wp-content/uploads/tainacan-items/431453/519207/AB001_P35_1157.jpg",
+  },
+  {
+    coords: [-22.9688, -43.2305],
+    title: "Aqueduto",
+    description: "O aqueduto é uma estrutura histórica que abastecia o Jardim.",
+    imageUrl: "https://cloud.jbrj.gov.br/apps/files_sharing/publicpreview/qcYgGJxA6kgqJE9?file=/&fileId=17933605&x=1925&y=922&a=true&etag=b91a9e9aad5dbb42b02e340bdf49c29d",
+  },
 ];
 
+// Função para criar pins no mapa
 pins.forEach((pin) => {
   L.marker(pin.coords)
     .addTo(map)
-    .bindPopup(`<h3>${pin.title}</h3><p>${pin.description}</p>`);
+    .on('click', () => {
+      openModal(pin.imageUrl, pin.description);
+    });
 });
+
+// Funções do modal
+function openModal(imageUrl, description) {
+  document.getElementById('modalImage').src = imageUrl;
+  document.getElementById('modalText').innerText = description;
+  document.getElementById('pinModal').style.display = 'block';
+}
+
+function closeModal() {
+  document.getElementById('pinModal').style.display = 'none';
+}
 
 // Destacar narrativa ativa
 function setActiveSection(sectionId) {
