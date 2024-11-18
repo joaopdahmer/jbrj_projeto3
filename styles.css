@@ -6,6 +6,7 @@ body {
 
 #scrollytelling {
   display: flex;
+  flex-direction: row;
 }
 
 #map {
@@ -20,55 +21,34 @@ body {
   width: 50%;
   margin-left: 50%;
   height: 100vh;
-  background: #f9f9f9;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.carousel {
-  position: relative;
-  width: 100%;
-  height: 80%;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.carousel-item {
-  display: none;
-  text-align: center;
+  overflow-y: scroll;
   padding: 20px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  background: #f9f9f9;
+}
+
+.scrollytelling-section {
+  margin: 100px 0;
+  padding: 20px;
+  border-radius: 5px;
   transition: opacity 0.5s ease-in-out;
 }
 
-.carousel-item.active {
-  display: block;
-  opacity: 1;
+.scrollytelling-section.active {
+  border: 2px solid #007bff;
+  background-color: #f0f8ff;
 }
 
-.carousel-controls {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: 10px;
+h1, h2 {
+  color: #007bff;
 }
 
-.carousel-controls button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
+h1 {
+  font-size: 2em;
 }
 
-.carousel-controls button:hover {
-  background-color: #0056b3;
+h2 {
+  font-size: 1.5em;
 }
 
 /* Modal para imagens dos pins */

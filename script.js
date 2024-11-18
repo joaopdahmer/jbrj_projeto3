@@ -23,36 +23,33 @@ function updateMapOpacity(year) {
   });
 }
 
-// Gerenciamento do carrossel
-let currentIndex = 0;
-const slides = document.querySelectorAll('.carousel-item');
+// Gerenciamento do scrollytelling
+const sections = document.querySelectorAll('.scrollytelling-section');
 
-function updateCarousel() {
-  slides.forEach((slide, index) => {
-    const isActive = index === currentIndex;
-    slide.classList.toggle('active', isActive);
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      const section = entry.target;
+      if (entry.isIntersecting) {
+        sections.forEach((sec) => sec.classList.remove('active'));
+        section.classList.add('active');
 
-    // Atualizar mapa baseado no atributo data-map
-    const mapYear = slide.getAttribute('data-map');
-    if (isActive && mapYear) {
-      updateMapOpacity(mapYear);
-    } else if (isActive && !mapYear) {
-      updateMapOpacity(null);
-    }
-  });
-}
+        // Atualizar mapa correspondente
+        const mapYear = section.getAttribute('data-map');
+        if (mapYear) {
+          updateMapOpacity(mapYear);
+        } else {
+          updateMapOpacity(null);
+        }
+      }
+    });
+  },
+  { threshold: 0.5 }
+);
 
-function nextSlide() {
-  currentIndex = (currentIndex + 1) % slides.length;
-  updateCarousel();
-}
+sections.forEach((section) => observer.observe(section));
 
-function prevSlide() {
-  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-  updateCarousel();
-}
-
-// Adicionar pins interativos
+// Pins interativos e modal
 const pins = [
   {
     coords: [-22.9692, -43.2219],
@@ -86,6 +83,7 @@ const pins = [
   },
 ];
 
+
 pins.forEach((pin) => {
   L.marker(pin.coords)
     .addTo(map)
@@ -103,6 +101,3 @@ function openModal(imageUrl, description) {
 function closeModal() {
   document.getElementById('pinModal').style.display = 'none';
 }
-
-// Atualizar carrossel na inicialização
-updateCarousel();

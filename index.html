@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scrollytelling Map</title>
+  <title>Scrollytelling Vertical</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
@@ -11,23 +11,17 @@
   <div id="scrollytelling">
     <div id="map"></div>
     <div id="story">
-      <div class="carousel">
-        <div class="carousel-item active" id="intro" data-map="">
-          <h1>Mapas Históricos do Jardim Botânico</h1>
-          <p>Explore as transformações do Jardim Botânico através dos mapas históricos de 1809 e 1844.</p>
-        </div>
-        <div class="carousel-item" id="map-1809" data-map="1809">
-          <h2>Mapa de 1809</h2>
-          <p>O mapa de 1809 marca o início do Jardim Botânico do Rio de Janeiro como uma das instituições mais importantes do Brasil. Criado por Dom João VI, o Jardim Botânico surgiu como um espaço para aclimatação de plantas exóticas trazidas de outras partes do mundo, como a Ásia e a África. Elementos como o Chafariz das Musas e o canal de irrigação evidenciam a preocupação com a infraestrutura necessária para manter as plantas exóticas e tropicais.</p>
-        </div>
-        <div class="carousel-item" id="map-1844" data-map="1844">
-          <h2>Mapa de 1844</h2>
-          <p>O mapa de 1844 representa a consolidação do Jardim Botânico como um espaço científico, cultural e de lazer. Após 35 anos, o Jardim havia se expandido significativamente, com trilhas planejadas, lagos artificiais e coleções botânicas organizadas de forma sistemática. Durante esse período, o Brasil já era independente, e o Jardim se tornou um símbolo do progresso imperial.</p>
-        </div>
+      <div class="scrollytelling-section" id="intro" data-map="">
+        <h1>Mapas Históricos do Jardim Botânico</h1>
+        <p>Explore as transformações do Jardim Botânico através dos mapas históricos de 1809 e 1844.</p>
       </div>
-      <div class="carousel-controls">
-        <button id="prev" onclick="prevSlide()">&#10094; Anterior</button>
-        <button id="next" onclick="nextSlide()">Próximo &#10095;</button>
+      <div class="scrollytelling-section" id="map-1809" data-map="1809">
+        <h2>Mapa de 1809</h2>
+        <p>O mapa de 1809 marca o início do Jardim Botânico do Rio de Janeiro como uma das instituições mais importantes do Brasil. Criado por Dom João VI, o Jardim Botânico surgiu como um espaço para aclimatação de plantas exóticas trazidas de outras partes do mundo, como a Ásia e a África. Elementos como o Chafariz das Musas e o canal de irrigação evidenciam a preocupação com a infraestrutura necessária para manter as plantas exóticas e tropicais.</p>
+      </div>
+      <div class="scrollytelling-section" id="map-1844" data-map="1844">
+        <h2>Mapa de 1844</h2>
+        <p>O mapa de 1844 representa a consolidação do Jardim Botânico como um espaço científico, cultural e de lazer. Após 35 anos, o Jardim havia se expandido significativamente, com trilhas planejadas, lagos artificiais e coleções botânicas organizadas de forma sistemática. Durante esse período, o Brasil já era independente, e o Jardim se tornou um símbolo do progresso imperial.</p>
       </div>
     </div>
 
